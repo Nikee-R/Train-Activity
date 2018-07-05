@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Train Arrival Time</title>
+  <!-- Links -->
+  <!-- Firebase reference -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <!-- JQuery reference -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Bootstrap references -->
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/minty/bootstrap.min.css" rel="stylesheet" integrity="sha384-4eGtnTOp6je5m6l1Zcp2WUGR9Y7kJZuAiD3Pk2GAW3uNRgHQSIqcrcAxBipzlbWP" crossorigin="anonymous">
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'>
+  <!-- Local file references -->
+  <link rel='stylesheet' type='text/css' href='assets/css/reset.css'>
+  <link rel='stylesheet' type='text/css' href='assets/css/style.css'>
+</head>
+
+<body>
+    <div class='content'>
+        <!-- Train information Display  -->
+    <div class='container'></div>
+
+        <!-- Title -->
+        <div class="jumbotron">
+            <h1 class="text-center">
+                <strong>Train Schedule</strong>
+            </h1>
+        </div>
+        
+        <!-- Rows of train information -->
+            <div class='row'>
+                <div class='col-sm-12'>
+                <br>
+
+                <!-- Card Header -->
+                <div class="card-header">
+                    <strong>Train Schedule</strong>
+                </div>
+
+                <!-- Train information -->
+                
+                <div class="card-body" id="train-info">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th id="train-name">Train Name</th>
+                            <th id="destination">Destination</th>
+                            <th id="frequency">Frequency (min)</th>
+                            <th id="next-arrival">Next Arrival</th>
+                            <th id="minutes-arrival">Minutes Away</th>
+                        </tr>
+                        </thead>                            
+                        <tbody id="train-info">
+                        </tbody>
+                </table>
+
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add train card header -->
+        <div class='content'>
+            <div class="card-header">
+                <strong>Add Train</strong>
+            </div>
+        </div>
+
+        <!-- Add train form fields -->
+        <!-- Train Name field -->
+        <div class='content'>
+            <div class="card-body" id="add-train-info">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="train">Train Name</label>
+                        <input type="text" class="form-control" id="train-In">
+                    </div>
+                    <!-- Destination field -->
+                    <div class="form-group">
+                        <label for="destination-input">Destination</label>
+                        <input type="text" class="form-control" id="destination-in">
+                    </div>
+                    <!-- First Train field -->
+                    <div class="form-group">
+                        <label for="first-train">First Train Time (Military Time)</label>
+                        <input type="text" class="form-control" id="first-train-in">
+                    </div>
+                    <!-- Frequency field -->
+                    <div class="form-group">
+                        <label for="frequency-info">Frequency (mins)</label>
+                        <input type="text" class="form-control" id="frequency-in">
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="button" class="btn btn-outline-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Footer -->
+<footer>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Javascript -->
+    <script src="assets/javascript/app.js"></script>
+</footer>
+</html>

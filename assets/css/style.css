@@ -1,0 +1,14 @@
+/* CSS that fixes text */
+.card-body a {
+    word-break: break-all;
+}
+
+.articleHeadline {
+    line-height: 1.5;
+}
+
+.content {
+    max-width: 60em;
+    margin: auto;
+    padding: 10px;
+}
