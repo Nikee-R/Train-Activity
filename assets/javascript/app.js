@@ -47,9 +47,8 @@ function tableData() {
 }
 
 // Button click function. This will not reset the page when clicked.
-$('.btn').on('click', function(event) {
+$('button').on('click', function(event) {
     event.preventDefault();
-})
 
     // Handles user-input.
     var nameIn = $('#train-in').val().trim();
@@ -82,5 +81,7 @@ database.ref().on('child_added', function(childSnapshot, prevChildKey) {
     database.push(childSnapshot.val());
     console.log(childSnapshot.val());
 });
-})
+});
+
 console.log(trainInfo);
+});
