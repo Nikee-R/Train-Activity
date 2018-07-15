@@ -19,24 +19,24 @@ $(document).ready(function() {
 //========================= App Functions =========================//
 
 // Empty array that contains the train data.
-var trainInfo = [];
-console.log(trainInfo);
+//var trainInfo = [];
+//console.log(trainInfo);
 
 // Initial table values.
-function initialize() {
-    var name = $('#train-name').val('');
-    var destination = $('#destination').val('');
-    var frequency = $('#frequency').val('');
-    var nextArrival = $('#next-arrival').val('');
-    var minutesArrival = $('#minutes-arrival').val('');
-}
+//function initialize() {
+    //var name = $('#train-name').val('');
+    //var destination = $('#destination').val('');
+    //var frequency = $('#frequency').val('');
+    //var nextArrival = $('#next-arrival').val('');
+    //var minutesArrival = $('#minutes-arrival').val('');
+//}
 
 // Pushed out table data.
 function tableData() {
     $('#table > tbody').empty();
 
     for (i = 0; i < trainInfo.length; i++) {
-        $('#table > tbody').append(
+        $('#train-table > tbody').append(
             '<tr>' + '<td>' + trainInfo[i].name + '</td>' +
             '<td>' + trainInfo[i].destination + '</td>' +
             '<td>' + trainInfo[i].frequency + '</td>' +
@@ -51,14 +51,19 @@ $('button').on('click', function(event) {
     event.preventDefault();
 
     // Handles user-input.
-    var nameIn = $('#train-in').val().trim();
-    var destIn = $('#destination-in').val().trim();
-    var nextIn = moment($('#first-train-in').val().trim(),"hh:mm").subtract(1, 'years').format('X');
-    var freqIn = $('#frequency-in').val().trim();
+    var nameIn = $('#name').val().trim();
+    var destIn = $('#dest').val().trim();
+    var nextIn = moment($('#first-train').val().trim(),"hh:mm").subtract(1, 'years').format('X');
+    var freqIn = $('#freq').val().trim();
 
     // Stores current time as reference.
     var currentTime = moment();
     console.log("Current Time is: " + moment(currentTime).format('hh:mm'));
+
+    console.log(nameIn);
+    console.log(destIn);
+    console.log(nextIn);
+    console.log(freqIn);
 
 
     // Stores in an object.
