@@ -11,10 +11,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Bootstrap references -->
   <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/minty/bootstrap.min.css" rel="stylesheet" integrity="sha384-4eGtnTOp6je5m6l1Zcp2WUGR9Y7kJZuAiD3Pk2GAW3uNRgHQSIqcrcAxBipzlbWP" crossorigin="anonymous">
-  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'>
   <!-- Local file references -->
-  <link rel='stylesheet' type='text/css' href='assets/css/reset.css'>
   <link rel='stylesheet' type='text/css' href='assets/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='assets/css/reset.css'>
 </head>
 
 <body>
@@ -27,6 +26,10 @@
             <h1 class="text-center">
                 <strong>Train Schedule</strong>
             </h1>
+
+            <h5 class='text-center'>
+                Find Your Train Info
+            </h5>
         </div>
         
         <!-- Rows of train information -->
@@ -35,8 +38,9 @@
                 <br>
 
                 <!-- Card Header -->
+                
                 <div class="card-header">
-                    <strong>Train Schedule</strong>
+                    <strong style='color: pink'>Train Schedule</strong>
                 </div>
 
                 <!-- Train information -->
@@ -66,7 +70,7 @@
         <!-- Add train card header -->
         <div class='content'>
             <div class="card-header">
-                <strong>Add Train</strong>
+                <strong style='color: pink'>Add Train</strong>
             </div>
         </div>
 
@@ -82,7 +86,7 @@
                     <!-- Destination field -->
                     <div class="form-group">
                         <label for="destination-input">Destination</label>
-                        <input type="text" class="form-control" id="dest">
+                        <input type="text" class="form-control" id="destination">
                     </div>
                     <!-- First Train field -->
                     <div class="form-group">
@@ -92,10 +96,10 @@
                     <!-- Frequency field -->
                     <div class="form-group">
                         <label for="frequency-info">Frequency (mins)</label>
-                        <input type="text" class="form-control" id="freq">
+                        <input type="text" class="form-control" id="frequency">
                     </div>
                     <!-- Submit Button -->
-                    <button type="button" class="btn btn-outline-success">Submit</button>
+                    <button type="button" class="btn btn-outline-secondary">Submit</button>
                     </div>
                 </form>
             </div>
@@ -107,8 +111,8 @@
 <footer>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <!-- Javascript -->
     <script src="assets/javascript/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 </footer>
 </html>

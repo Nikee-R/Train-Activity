@@ -12,3 +12,15 @@
     margin: auto;
     padding: 10px;
 }
+
+.jumbotron, .card-header,  {
+    background-color: pink;
+}
+
+h1 {
+    color: pink;
+}
+
+h5 {
+    color: pink;
+}

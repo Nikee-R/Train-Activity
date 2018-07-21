@@ -18,60 +18,27 @@ $(document).ready(function() {
 
 //========================= App Functions =========================//
 
-// Empty array that contains the train data.
-//var trainInfo = [];
-//console.log(trainInfo);
-
-// Initial table values.
-//function initialize() {
-    //var name = $('#train-name').val('');
-    //var destination = $('#destination').val('');
-    //var frequency = $('#frequency').val('');
-    //var nextArrival = $('#next-arrival').val('');
-    //var minutesArrival = $('#minutes-arrival').val('');
-//}
-
-// Pushed out table data.
-function tableData() {
-    $('#table > tbody').empty();
-
-    for (i = 0; i < trainInfo.length; i++) {
-        $('#train-table > tbody').append(
-            '<tr>' + '<td>' + trainInfo[i].name + '</td>' +
-            '<td>' + trainInfo[i].destination + '</td>' +
-            '<td>' + trainInfo[i].frequency + '</td>' +
-            '<td>' + trainInfo[i].nextArrival + '</td>' +
-            '<td>' + trainInfo[i].minutesArrival + '</td>' + '</tr>'
-        );
-    }
-}
-
 // Button click function. This will not reset the page when clicked.
 $('button').on('click', function(event) {
     event.preventDefault();
 
     // Handles user-input.
-    var nameIn = $('#name').val().trim();
-    var destIn = $('#dest').val().trim();
+    var trainName = $('#name').val().trim();
+    var destination = $('#destination').val().trim();
+    var freq = $('#frequency').val().trim();
     var nextIn = moment($('#first-train').val().trim(),"hh:mm").subtract(1, 'years').format('X');
-    var freqIn = $('#freq').val().trim();
 
     // Stores current time as reference.
     var currentTime = moment();
     console.log("Current Time is: " + moment(currentTime).format('hh:mm'));
 
-    console.log(nameIn);
-    console.log(destIn);
-    console.log(nextIn);
-    console.log(freqIn);
 
-
-    // Stores in an object.
+    // Stores info in an object.
     var newInfo = {
-        trainName: name,
-        destination: destination,
-        nextTrain: nextIn,
-        frequency: freqIn
+        train: trainName,
+        dest: destination,
+        frequency: freq,
+        arrivalTime: nextIn,
     };
 
     // Pushes the results.
@@ -79,14 +46,43 @@ $('button').on('click', function(event) {
     console.log(newInfo);
 
     // Clear boxes
-    initialize();
+    $('#name').val('');
+    $('#destination').val('');
+    $('#first-train').val('');
+    $('#frequency').val('');
+
+    return false;
+});
 
 // Adds to firebase database.
 database.ref().on('child_added', function(childSnapshot, prevChildKey) {
-    database.push(childSnapshot.val());
     console.log(childSnapshot.val());
+
+    // Stores variables from the object.
+    var trainName = childSnapshot.val().train;
+    var destination = childSnapshot.val().dest;
+    var nextIn = childSnapshot.val().arrivalTime;
+    var freq = childSnapshot.val().frequency;
+
+    var trainTime = moment.unix(nextIn).format('hh:mm');
+    // Outputs time difference.
+    var difference = moment().diff(moment(trainTime), 'minutes');
+
+    // Shows time apart.
+    var remaining = difference % frequency;
+
+    // Shows next arrival time.
+    var nextArrival = moment().add(remaining, 'minutes').format('hh:mm');
+
+    // Inputs new information to table.
+    $('#train-table > tbody').append(
+        '<tr>' + 
+            '<td>' + trainName + '</td>' +
+            '<td>' + destination + '</td>' +
+            '<td>' + freq + '</td>' +
+            '<td>' + nextArrival + '</td>' +
+            '<td>' + difference + '<td>' +
+        '</tr>');
 });
 });
 
-console.log(trainInfo);
-});
